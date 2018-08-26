@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack --config ./config/webpack.prod.js",
+    "build:dev": "webpack --config ./config/webpack.dev.js",
+    "dev": "webpack-dev-server --config ./config/webpackDevServer.js",
+    "start": "webpack --config ./config/webpack.common.js"
+  },
   "dependencies": {
     "babel-loader": "^7.1.5",
     "webpack": "^4.17.1",

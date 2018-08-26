@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolvew(appDirectory, relativePath);
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
-model.exports = {
+module.exports = {
     appIndexJs: resolveApp('src/index.js'),
     appOutput: resolveApp('src/public'),
     appHtml: resolveApp('public/index.html'),

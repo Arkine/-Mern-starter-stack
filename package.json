@@ -4,7 +4,11 @@
   "main": "index.js",
   "author": "arkine <slyngstad55@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "concurrently --raw --kill-others \"cd server && yarn dev\" \"cd client && yarn dev\" "
+  },
   "dependencies": {
+    "concurrently": "^4.0.1",
     "eslint": "^5.4.0"
   }
 }

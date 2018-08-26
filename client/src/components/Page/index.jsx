@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Header from './Header';
-import Body from './Body';
-import Footer from './Footer';
+import Header from './header';
+import Body from './body';
+import Footer from './footer';
 
 export default class Page extends React.Component {
     render() {

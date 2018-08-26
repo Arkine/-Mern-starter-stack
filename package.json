@@ -1,0 +1,10 @@
+{
+  "name": "git-scan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "arkine <slyngstad55@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.4.0"
+  }
+}

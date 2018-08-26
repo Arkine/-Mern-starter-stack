@@ -10,6 +10,7 @@
     "start": "webpack --config ./config/webpack.common.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.5.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

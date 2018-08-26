@@ -6,7 +6,9 @@ dotenv.config({
     path: path.join(__dirname, '../variables.env')
 });
 
-mongoose.connect(`${process.env.DB}`);
+mongoose.connect(`${process.env.DB}`, {
+    useNewUrlParser: true,
+});
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', err => {
     console.log(`There was an error connecting to the DB: ${err}`);

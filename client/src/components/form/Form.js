@@ -37,7 +37,6 @@ export default class Form extends React.Component {
 	}
 
 	onSubmit = e => {
-		console.log('ON SUB')
 		e.preventDefault();
 
 		const isValid = this.validate();
@@ -60,11 +59,12 @@ export default class Form extends React.Component {
 	}
 
 	render() {
+		const {onSubmit, ...rest} = this.props;
 		return (
 			<ValuesContext.Provider value={this.state.values}>
 				<ErrorsContext.Provider value={this.state.errors}>
 					<SetValueContext.Provider value={this.updateField}>
-						<Container onSubmit={this.onSubmit} {...this.props}>
+						<Container onSubmit={this.onSubmit} {...rest}>
 							{this.props.children}
 						</Container>
 					</SetValueContext.Provider>

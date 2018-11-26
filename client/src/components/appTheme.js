@@ -6,7 +6,9 @@ const colors = {
 
 export default {
     colors: {
-        ...colors
+		...colors,
+		primary: colors.blue,
+		secondary: colors.green,
     },
     body: {
         rowWidth: '70rem'

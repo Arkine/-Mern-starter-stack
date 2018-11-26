@@ -10,6 +10,10 @@
     "start": "webpack-dashboard -- webpack --config ./config/webpack.common.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-regular-svg-icons": "^5.5.0",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "axios": "^0.18.0",
     "history": "^4.7.2",
     "react": "^16.4.2",

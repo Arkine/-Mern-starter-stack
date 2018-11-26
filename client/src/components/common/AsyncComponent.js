@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default importComponent => (
+export default (importComponent, fallback) => (
 	class AsyncComponent extends React.Component {
 		constructor(props) {
 			super(props);
@@ -20,7 +20,7 @@ export default importComponent => (
 
 		render() {
 			const {component: C} = this.state;
-			const loading = this.props.fallback ? this.props.fallback : <h2>Loading...</h2>;
+			const loading = fallback ? fallback : <h2>Loading...</h2>;
 
 			return C ? <C {...this.props} /> : loading;
 		}

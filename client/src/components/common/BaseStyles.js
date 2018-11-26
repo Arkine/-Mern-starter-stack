@@ -7,6 +7,8 @@ export default createGlobalStyle`
 	}
 
 	body {
+		position: relative;
+
 		line-height: 1.3;
 		height: 100%;
 	}

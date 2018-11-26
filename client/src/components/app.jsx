@@ -4,7 +4,10 @@ import {Router, Switch, Route} from 'react-router-dom';
 
 import history from 'app/services/history';
 
-import {Home} from '../views';
+import {
+	Home,
+	About
+} from '../views';
 
 import theme from './appTheme';
 
@@ -46,6 +49,7 @@ export default class App extends React.Component {
 						<Body>
 							<Switch>
 								<Route exact path="/" component={Home} />
+								<Route path="/about" component={About} />
 							</Switch>
 						</Body>
 						<Footer />

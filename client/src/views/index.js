@@ -6,8 +6,14 @@ import Loading from 'app/components/loading/LoadingSpinner';
 const Home = AsyncComponent(
 	() => import('./Home'),
 	<Loading />
+);
+
+const About = AsyncComponent(
+	() => import('./About'),
+	<Loading />
 )
 
 export {
-	Home
+	Home,
+	About
 }

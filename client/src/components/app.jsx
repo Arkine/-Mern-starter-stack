@@ -9,7 +9,7 @@ export default class App extends React.Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <Page />    
+                <Page />
             </ThemeProvider>
         );
     }

@@ -11,9 +11,21 @@ const Home = AsyncComponent(
 const About = AsyncComponent(
 	() => import('./About'),
 	<Loading />
-)
+);
+
+const Login = AsyncComponent(
+	() => import('./Login'),
+	<Loading />
+);
+
+const Signup = AsyncComponent(
+	() => import('./Signup'),
+	<Loading />
+);
 
 export {
 	Home,
-	About
+	About,
+	Login,
+	Signup
 }

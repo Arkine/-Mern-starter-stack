@@ -1,19 +1,18 @@
 import React from 'react';
 import {ThemeProvider} from 'styled-components';
-import {Router, Switch, Route} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 
 import history from 'app/services/history';
-
-import {
-	Home,
-	About
-} from '../views';
 
 import theme from './appTheme';
 
 import Header from './common/Header';
 import Footer from './common/Footer';
 import Body from './common/Body';
+
+
+import Routes from './routes/Routes';
+
 import {LoadingSpinner} from './loading';
 
 import BaseStyles from './common/BaseStyles'
@@ -24,7 +23,9 @@ export default class App extends React.Component {
 		super(props);
 
 		this.state = {
-			loading: true
+			loading: true,
+			userAuthenticated: false,
+			appAuthenticated: false,
 		}
 	}
 
@@ -47,10 +48,7 @@ export default class App extends React.Component {
 
 						<Header />
 						<Body>
-							<Switch>
-								<Route exact path="/" component={Home} />
-								<Route path="/about" component={About} />
-							</Switch>
+							<Routes childProps={this.state} />
 						</Body>
 						<Footer />
 					</React.Fragment>

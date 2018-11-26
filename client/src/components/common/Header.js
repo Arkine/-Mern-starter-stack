@@ -9,6 +9,10 @@ const Header = styled.header`
 `;
 
 Header.Content = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
 	margin: 0 auto;
 
 	width: 100%;

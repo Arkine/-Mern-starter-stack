@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from './StyledHome';
 
-export default class Home extends React.Component {
+export default class Home extends React.PureComponent {
 	render() {
 		return (
 			<Container>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from './AboutStyled';
 
-export default class About extends React.Component {
+export default class About extends React.PureComponent {
 	render() {
 		return (
 			<Container>

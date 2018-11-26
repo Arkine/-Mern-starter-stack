@@ -21,7 +21,7 @@ export default createGlobalStyle`
 	}
 
 	main {
-		padding: 1rem 0;
+		padding: 1rem;
 		flex-grow: 1;
 	}
 `;

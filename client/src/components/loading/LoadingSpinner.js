@@ -36,7 +36,7 @@ const Spinner = styled(FontAwesomeIcon)`
 	animation: ${spin} 3s linear infinite;
 `;
 
-export default class LoadingSpinner extends React.Component {
+export default class LoadingSpinner extends React.PureComponent {
 	render() {
 		return (
 			<Container {...this.props}>

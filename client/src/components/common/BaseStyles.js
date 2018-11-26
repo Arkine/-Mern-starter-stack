@@ -19,6 +19,7 @@ export default createGlobalStyle`
 	}
 
 	main {
+		padding: 1rem 0;
 		flex-grow: 1;
 	}
 `;

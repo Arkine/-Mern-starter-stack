@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Footer = styled.footer`
 	background-color: ${props => props.theme.colors.primary};
+	padding: 1rem;
 `;
 
 export default props => {

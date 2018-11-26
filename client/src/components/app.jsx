@@ -11,7 +11,9 @@ import theme from './appTheme';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import Body from './common/Body';
+
 import BaseStyles from './common/BaseStyles'
+import {Normalize} from 'styled-normalize'
 
 export default class App extends React.Component {
     render() {
@@ -19,7 +21,9 @@ export default class App extends React.Component {
 			<Router history={history}>
 				<ThemeProvider theme={theme}>
 					<React.Fragment>
+						<Normalize />
 						<BaseStyles />
+
 						<Header />
 						<Body>
 							<Switch>

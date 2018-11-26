@@ -7,8 +7,16 @@ const Footer = styled.footer`
 	padding: 1rem;
 `;
 
+Footer.Content = styled.div`
+	width: 100%;
+	max-width: ${props => props.theme.body.rowWidth};
+	margin: 0 auto;
+`;
+
 export default props => {
 	return (
-		<Footer>Footer</Footer>
+		<Footer>
+			<Footer.Content>Footer</Footer.Content>
+		</Footer>
 	)
 }

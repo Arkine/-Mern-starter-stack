@@ -5,13 +5,19 @@ const bodyParser = require('body-parser');
 
 const app = new Express();
 
+const Routes = require('./routes');
+
 app.use(cors());
 
 app.use(Express.urlencoded({
     extended: true,
 }));
 
+// Convert resp to json
 app.use(Express.json());
+
+// Routing
+app.use('/', Routes);
 
 // Where our static files are served from
 app.use("/static", Express.static(path.join(__dirname, '../../build/static')));

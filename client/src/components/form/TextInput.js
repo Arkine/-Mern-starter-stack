@@ -1,68 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {FormConsumer} from './Form';
+
 const Container = styled.div``;
 Container.Error = styled.span`
+	padding: 0.25rem;
 	background-color: ${props => props.theme.colors.error};
+	color: #fff;
 `;
 
-export default class TextInput extends React.Component {
-	constructor(props) {
-		super(props);
+Container.Input = styled.input`
+	border: 1px solid ${props => props.err ? props.theme.colors.error : props.theme.colors.gray};
+`;
 
-		this.state = {
-			errorMsg: null
-		}
-	}
-
-	onInvalid() {
-		e.preventDefault();
-
-		const validity = e.target.validity;
-
-		const errors = {
-			valueMissing: 'This field is required',
-			typeMismatch: `Invalid ${e.target.type}`,
-			tooLong: 'Too Long',
-			tooShort: 'Too Short',
-			rangeUnderflow: `Must be greater than ${e.target.min}`,
-			patternMismatch: 'Invalid format',
-			rangeOverflow: `Must be less than ${e.target.max}`,
-			stepMismatch: `Invalid increment`,
-			badInput: `Bad input`,
-		}
-
-		let errorMsg = 'Invalid';
-		for (const key of Object.keys(errors)) {
-			if (validity[key]) {
-				if (this.props.errors && this.props.errors[key]) {
-					errorMsg = this.props.errors[key];
-				} else {
-					errorMsg = errors[key];
-				}
-			}
-		}
-
-		if (this.props.onError) {
-			this.props.onError(errorMsg);
-		}
-
-		this.setState({
-			errorMsg,
-		});
-	}
-
-
+export default class TextInput extends React.PureComponent {
 	render() {
 		return(
-			<Container>
-				<input
-					type="text"
-					onInvalid={this.onInvalid}
-					{...this.props}
-				/>
-				{this.state.errorMsg && <Container.Error>{this.state.errorMsg}</Container.Error>}
-			</Container>
+			<FormConsumer>
+				{({errors, values, setValue}) => {
+					return (
+						<Container>
+							<Container.Input
+								value={values[this.props.name]}
+								onChange={(e) => {
+									e.preventDefault();
+									setValue(this.props.name, e.target.value);
+								}}
+								{...this.props}
+							/>
+							{errors[this.props.name] && <Container.Error>{errors[this.props.name]}</Container.Error>}
+						</Container>
+					)
+				}}
+			</FormConsumer>
 		);
 	}
 }

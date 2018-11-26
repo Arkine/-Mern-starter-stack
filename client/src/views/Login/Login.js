@@ -10,18 +10,24 @@ import {
 } from 'app/components/form';
 
 export default class Login extends React.PureComponent {
+
+	handleFormSubmit = e => {
+		e.preventDefault();
+	}
+
 	render() {
 		return (
 			<Container>
 				<h1>Login</h1>
 				<Form>
 					<FormGroup>
-						<FormLabel for="username">Username</FormLabel>
+						<FormLabel htmlFor="username">Username</FormLabel>
 						<TextInput type="text" name="username" />
 
-						<FormLabel for="password">Password</FormLabel>
+						<FormLabel htmlFor="password">Password</FormLabel>
 						<TextInput type="password" name="password" />
 					</FormGroup>
+					<button onClick={this.handleFormSubmit}>Submit</button>
 				</Form>
 			</Container>
 		);

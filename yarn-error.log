@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /Users/geckodesigns/.yarn/bin/yarn.js remove google-map-react
+  /usr/local/bin/node /Users/geckodesigns/.yarn/bin/yarn.js dev
 
 PATH: 
-  /Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin
+  /Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin
 
 Yarn version: 
   1.5.1
@@ -1126,10 +1126,17 @@ Lockfile:
       yargs-parser "^10.1.0"
 
 Trace: 
-  Error: This module isn't specified in a manifest.
-      at new MessageError (/Users/geckodesigns/.yarn/lib/cli.js:186:110)
-      at Object.<anonymous> (/Users/geckodesigns/.yarn/lib/cli.js:60445:15)
-      at Generator.next (<anonymous>)
-      at step (/Users/geckodesigns/.yarn/lib/cli.js:98:30)
-      at /Users/geckodesigns/.yarn/lib/cli.js:109:13
-      at <anonymous>
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c concurrently --raw --kill-others "cd server && yarn dev" "cd client && yarn dev" 
+  Directory: /Applications/AMPPS/www/-Mern-starter-stack
+  Output:
+  
+      at ProcessTermError.MessageError (/Users/geckodesigns/.yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/Users/geckodesigns/.yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/Users/geckodesigns/.yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:915:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

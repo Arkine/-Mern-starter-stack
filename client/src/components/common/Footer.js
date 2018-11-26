@@ -11,6 +11,8 @@ Footer.Content = styled.div`
 	width: 100%;
 	max-width: ${props => props.theme.body.rowWidth};
 	margin: 0 auto;
+
+	color: #fff;
 `;
 
 export default props => {

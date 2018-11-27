@@ -2,11 +2,12 @@ import React from 'react';
 
 import {Container} from './LoginStyled';
 
+import {Button} from 'app/components/common/Button';
+
 import {
 	Form,
 	FormGroup,
-	TextInput,
-	FormLabel
+	TextInput
 } from 'app/components/form';
 
 export default class Login extends React.Component {
@@ -58,7 +59,7 @@ export default class Login extends React.Component {
 							required
 						/>
 					</FormGroup>
-					<button type="submit">Submit</button>
+					<Button type="submit">Submit</Button>
 				</Form>
 			</Container>
 		);

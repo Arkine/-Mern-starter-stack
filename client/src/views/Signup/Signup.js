@@ -1,12 +1,12 @@
 import React from 'react';
 
 import {Container} from './SignupStyled';
+import {Button} from 'app/components/common/Button';
 
 import {
 	Form,
 	FormGroup,
-	TextInput,
-	FormLabel
+	TextInput
 } from 'app/components/form';
 
 export default class Signup extends React.PureComponent {
@@ -16,16 +16,28 @@ export default class Signup extends React.PureComponent {
 				<Form>
 					<h1>Signup</h1>
 					<FormGroup>
-						<FormLabel htmlFor="username">Username</FormLabel>
-						<TextInput type="text" name="username" />
+						<TextInput
+							type="text"
+							name="username"
+							label="Username"
+							required
+						/>
 
-						<FormLabel htmlFor="password">Password</FormLabel>
-						<TextInput type="password" name="password" />
+						<TextInput
+							type="password"
+							name="password"
+							label="Password"
+							required
+						/>
 
-						<FormLabel htmlFor="confirm-password">confirm-password</FormLabel>
-						<TextInput type="password" name="confirm-password" />
+						<TextInput
+							type="password"
+							name="confirm-password"
+							label="Confirm-Password"
+							required
+						/>
 					</FormGroup>
-					<button type="submit">Submit</button>
+					<Button type="submit">Submit</Button>
 				</Form>
 			</Container>
 		);

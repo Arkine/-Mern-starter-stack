@@ -9,6 +9,10 @@ const Body = styled.main`
 
 	width: 100%;
 	max-width: ${props => props.theme.body.rowWidth};
+
+	${media.desktop`
+		width: auto;
+	`}
 `;
 
 export default props => {

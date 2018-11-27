@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import media from 'app/helpers/mediaQuery';
+
 import {
 	ValuesContext,
 	ErrorsContext,
@@ -11,11 +13,15 @@ const Container = styled.form`
 	border-radius: 4px;
 
 	padding: 1rem;
-	margin: 0 auto;
 
-	width: 100%;
-	max-width: 500px;
+	width: auto;
 
+	min-width: 500px;
+	max-width: 750px;
+
+	${media.tablet`
+		min-width: 250px;
+	`}
 `;
 
 

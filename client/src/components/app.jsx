@@ -1,8 +1,10 @@
 import React from 'react';
 import {ThemeProvider} from 'styled-components';
 import {Router} from 'react-router-dom';
+import {Provider} from "react-redux";
 
 import history from 'app/services/history';
+import store from 'app/services/store';
 
 import theme from './appTheme';
 
@@ -59,9 +61,11 @@ export default class App extends React.Component {
     render() {
         return (
 			<Router history={history}>
-				<ThemeProvider theme={theme}>
-					{this.renderBodyContent()}
-				</ThemeProvider>
+				<Provider store={store}>
+					<ThemeProvider theme={theme}>
+						{this.renderBodyContent()}
+					</ThemeProvider>
+				</Provider>
 			</Router>
         );
     }

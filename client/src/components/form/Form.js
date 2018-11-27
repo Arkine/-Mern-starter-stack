@@ -82,16 +82,7 @@ export default class Form extends React.Component {
 		// }
 
 		if (this.props.validator) {
-			let errors = this.props.validator(this.state.values);
-
-			// If there are errors
-			this.setState({
-				errors: {
-					...this.state.errors,
-					...errors
-				}
-			});
-
+			this.props.validator(this.state.values);
 			// isValid = false;
 		}
 

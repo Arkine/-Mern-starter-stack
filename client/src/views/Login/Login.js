@@ -31,8 +31,18 @@ export default class Login extends React.Component {
 		console.log('VALIDATOR HERE DOG', values)
 		const keys = Object.keys(values);
 		for (let i=0; i<keys.length; i++) {
-			console.log('VALUES HERE', values[keys[i]]);
+			const val = values[keys[i]];
+			if (val.length < 5) {
+				this.setState(prevState => ({
+					errors: {
+						...prevState.errors,
+						[keys[i]]: 'too long'
+					}
+				}));
+			}
 		}
+
+		console.log(this.state)
 
 		return {};
 	}

@@ -2,6 +2,10 @@ import React from 'react';
 
 import { Container } from './AboutStyled';
 
+import transitionRoute from 'app/decorators/transitionRoute';
+import {fadeFromTop} from 'app/services/animations/transition';
+
+@transitionRoute(fadeFromTop)
 export default class About extends React.PureComponent {
 	render() {
 		return (

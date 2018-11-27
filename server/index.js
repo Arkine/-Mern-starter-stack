@@ -11,7 +11,8 @@ mongoose.connect(`${process.env.DB}`, {
 });
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', err => {
-    console.log(`There was an error connecting to the DB: ${err}`);
+	console.log(`There was an error connecting to the DB: ${err}`);
+	process.exit(1);
 });
 
 const app = require('./src');

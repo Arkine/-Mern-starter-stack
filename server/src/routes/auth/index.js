@@ -2,6 +2,6 @@ const express = require('express');
 
 const Router = express.Router();
 
-// Router.get('/auth', )
+// Router.get('/login', )
 
 module.exports = Router;

@@ -5,7 +5,9 @@
   "author": "arkine <slyngstad55@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently --raw --kill-others \"cd server && yarn dev\" \"cd client && yarn dev\" "
+    "dev": "concurrently --raw --kill-others \"cd server && yarn dev\" \"cd client && yarn dev\"",
+    "build:dev": "cd client && yarn build:dev",
+    "build": "cd client && yarn build"
   },
   "dependencies": {
     "concurrently": "^4.0.1",

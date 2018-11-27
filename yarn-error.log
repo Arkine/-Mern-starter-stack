@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /Users/geckodesigns/.yarn/bin/yarn.js dev
+  /usr/local/bin/node /Users/geckodesigns/.yarn/bin/yarn.js build
 
 PATH: 
-  /Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin
+  /Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin
 
 Yarn version: 
   1.5.1
@@ -21,7 +21,9 @@ npm manifest:
     "author": "arkine <slyngstad55@gmail.com>",
     "license": "MIT",
     "scripts": {
-      "dev": "concurrently --raw --kill-others \"cd server && yarn dev\" \"cd client && yarn dev\" "
+      "dev": "concurrently --raw --kill-others \"cd server && yarn dev\" \"cd client && yarn dev\"",
+      "build:dev": "cd client && yarn build:dev",
+      "build": "cd client && yarn build"
     },
     "dependencies": {
       "concurrently": "^4.0.1",
@@ -1129,7 +1131,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c concurrently --raw --kill-others "cd server && yarn dev" "cd client && yarn dev" 
+  Arguments: -c cd client && yarn build
   Directory: /Applications/AMPPS/www/-Mern-starter-stack
   Output:
   

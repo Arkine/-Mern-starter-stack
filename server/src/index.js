@@ -17,7 +17,7 @@ app.use(Express.urlencoded({
 app.use(Express.json());
 
 // Routing
-app.use('/', Routes);
+// app.use('/', Routes);
 
 // Where our static files are served from
 app.use("/static", Express.static(path.join(__dirname, '../../build/static')));

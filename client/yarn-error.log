@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /Users/geckodesigns/.yarn/bin/yarn.js dev
+  /usr/local/bin/node /Users/geckodesigns/.yarn/bin/yarn.js build
 
 PATH: 
-  /Applications/AMPPS/www/-Mern-starter-stack/node_modules/.bin:/Users/geckodesigns/.config/yarn/link/node_modules/.bin:/Applications/AMPPS/www/-Mern-starter-stack/node_modules/.bin:/Users/geckodesigns/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin
+  /Applications/AMPPS/www/-Mern-starter-stack/node_modules/.bin:/Users/geckodesigns/.config/yarn/link/node_modules/.bin:/Applications/AMPPS/www/-Mern-starter-stack/node_modules/.bin:/Users/geckodesigns/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2/bin:/Users/geckodesigns/.rvm/gems/ruby-2.4.2@global/bin:/Users/geckodesigns/.rvm/rubies/ruby-2.4.2/bin:/Users/geckodesigns/.yarn/bin:/Users/geckodesigns/.config/yarn/global/node_modules/.bin:/Users/geckodesigns/.cargo/bin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin:/Applications/AMPPS/mysql/bin:/usr/local/bin/wp:/Applications/AMPPS/php/bin:/Users/geckodesigns/.rvm/bin
 
 Yarn version: 
   1.5.1
@@ -20,10 +20,10 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "build": "webpack-dashboard -- webpack --config ./config/webpack.prod.js",
-      "build:dev": "webpack-dashboard -- webpack --config ./config/webpack.dev.js",
-      "dev": "webpack-dashboard -- webpack-dev-server --config ./config/webpackDevServer.js",
-      "start": "webpack-dashboard -- webpack --config ./config/webpack.common.js"
+      "build": "webpack --config ./config/webpack.prod.js",
+      "build:dev": "webpack --config ./config/webpack.dev.js",
+      "dev": "webpack-dev-server --config ./config/webpackDevServer.js",
+      "start": "webpack --config ./config/webpack.common.js"
     },
     "dependencies": {
       "@fortawesome/fontawesome-svg-core": "^1.2.8",
@@ -4653,9 +4653,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 2
   Command: sh
-  Arguments: -c webpack-dashboard -- webpack-dev-server --config ./config/webpackDevServer.js
+  Arguments: -c webpack --config ./config/webpack.prod.js
   Directory: /Applications/AMPPS/www/-Mern-starter-stack/client
   Output:
   

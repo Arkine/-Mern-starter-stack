@@ -9,17 +9,33 @@ import {
 	TextInput
 } from 'app/components/form';
 
-export default class Signup extends React.PureComponent {
+export default class Signup extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			errors: {}
+		};
+	}
+
+	validate = values => {
+		return {};
+	}
+
 	render() {
 		return (
 			<Container>
-				<Form>
+				<Form
+					onSubmit={this.handleFormSubmit}
+					validator={this.validate}
+				>
 					<h1>Signup</h1>
 					<FormGroup>
 						<TextInput
 							type="text"
 							name="username"
 							label="Username"
+							error={this.state.errors['username']}
 							required
 						/>
 
@@ -27,6 +43,7 @@ export default class Signup extends React.PureComponent {
 							type="password"
 							name="password"
 							label="Password"
+							error={this.state.errors['password']}
 							required
 						/>
 
@@ -34,6 +51,7 @@ export default class Signup extends React.PureComponent {
 							type="password"
 							name="confirm-password"
 							label="Confirm-Password"
+							error={this.state.errors['confirm-password']}
 							required
 						/>
 					</FormGroup>

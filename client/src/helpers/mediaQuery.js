@@ -6,25 +6,15 @@ const sizes = {
 	mobile: 576
 }
 
-const media = {
-	max: Object.keys(sizes).reduce((acc, label) => {
+const media = (limit) => (
+	Object.keys(sizes).reduce((acc, label) => {
 		acc[label] = (...args) => css`
-			@media (max-width: ${sizes[label] / 16}rem) {
+			@media (${limit}-width: ${sizes[label] / 16}rem) {
 				${css(...args)}
 			}
 		`;
-
-		return acc;
-	}, {}),
-	min: Object.keys(sizes).reduce((acc, label) => {
-		acc[label] = (...args) => css`
-			@media (min-width: ${sizes[label] / 16}rem) {
-				${css(...args)}
-			}
-		`;
-
 		return acc;
 	}, {})
-};
+)
 
 export default media;

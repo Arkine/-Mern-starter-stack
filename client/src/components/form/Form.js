@@ -19,7 +19,7 @@ const Container = styled.form`
 	min-width: 500px;
 	max-width: 750px;
 
-	${media.tablet`
+	${media('max').tablet`
 		min-width: 250px;
 	`}
 `;

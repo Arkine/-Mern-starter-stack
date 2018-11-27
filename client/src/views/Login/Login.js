@@ -9,10 +9,21 @@ import {
 	FormLabel
 } from 'app/components/form';
 
-export default class Login extends React.PureComponent {
+export default class Login extends React.Component {
+	constructor(props) {
+		super(props);
+
+
+		this.state = {
+			errors: {}
+		}
+	}
 
 	handleFormSubmit = ({errors, values}) => {
-		console.log({errors, values});
+		console.log({errors})
+		this.setState({
+			errors,
+		});
 	}
 
 	validateForm = values => {
@@ -31,11 +42,21 @@ export default class Login extends React.PureComponent {
 				<Form onSubmit={this.handleFormSubmit} validator={this.validateForm}>
 					<h1>Login</h1>
 					<FormGroup>
-						<FormLabel htmlFor="username">Username</FormLabel>
-						<TextInput type="number" name="username" required />
+						<TextInput
+							type="number"
+							name="username"
+							error={this.state.errors['username']}
+							label="Username"
+							required
+						/>
 
-						<FormLabel htmlFor="password">Password</FormLabel>
-						<TextInput type="password" name="password" required />
+						<TextInput
+							type="password"
+							name="password"
+							error={this.state.errors['password']}
+							label="Password"
+							required
+						/>
 					</FormGroup>
 					<button type="submit">Submit</button>
 				</Form>

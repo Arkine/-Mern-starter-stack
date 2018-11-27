@@ -54,33 +54,37 @@ export default class Form extends React.Component {
 
 	validate() {
 		let isValid = true;
-		const form = this._formEl.current;
+		isValid = this._formEl.current.checkValidity();
 
-		if (form) {
-			console.log('NOT VALID', form)
-			if (form.checkValidity() === false) {
-				for(let i=0; i<formLength; i++) {
-					const elem = form[i];
-					console.log({elem})
-					if (!elem.validity.valid) {
-						this.setState({
-							errors: {
-								...this.state.errors,
-								[elem.name]: elem.validationMessage,
-							}
-						});
-					}
-				}
+		// if (form) {
+		// 	// if (form.checkValidity() === false) {
+		// 		for(let i=0; i<form.length; i++) {
+		// 			const elem = form[i];
+		// 			// if (!elem.validity.valid) {
+		// 				this.setState({
+		// 					errors: {
+		// 						...this.state.errors,
+		// 						[elem.name]:  'not valid'//elem.validationMessage,
+		// 					}
+		// 				});
+		// 				console.log('INVALIDATIONG', this.state.errors);
+		// 			// }
+		// 		}
 
-				isValid = false;
-			}
-		}
+		// 		isValid = false;
+		// 	// }
+		// }
 
 		if (this.props.validator) {
 			let errors = this.props.validator(this.state.values);
 
 			// If there are errors
-			this.setState({errors});
+			this.setState({
+				errors: {
+					...this.state.errors,
+					...errors
+				}
+			});
 
 			// isValid = false;
 		}

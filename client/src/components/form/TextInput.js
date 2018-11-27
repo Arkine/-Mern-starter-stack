@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import FormLabel from './FormLabel';
+
 import {FormConsumer} from './Form';
 
 const Container = styled.div`
@@ -14,10 +16,15 @@ Container.Error = styled.span`
 	padding: 0.25rem;
 	background-color: ${props => props.theme.colors.error};
 	color: #fff;
+	border-bottom: 1px solid #fff;
 `;
 
 Container.Input = styled.input`
 	border: 1px solid ${props => props.hasError ? props.theme.colors.error : props.theme.colors.gray};
+`;
+
+Container.Label = styled(FormLabel)`
+	color: ${props => props.hasError ? props.theme.colors.error : 'initial'};
 `;
 
 export default class TextInput extends React.Component {
@@ -77,10 +84,11 @@ export default class TextInput extends React.Component {
 				{({errors, values, setValue}) => {
 					return (
 						<Container>
+							{this.props.label && <Container.Label htmlFor={this.props.name} hasError={!!this.state.errorMsg || !!this.props.error}>{this.props.label}</Container.Label>}
 							<Container.Input
 								value={values[this.props.name] || ''}
 								onInvalid={this.onInvalid}
-								hasError={!!this.state.errorMsg}
+								hasError={!!this.state.errorMsg || !!this.props.error}
 								onChange={(e) => {
 									e.preventDefault();
 									this.updateField(e);
@@ -89,6 +97,7 @@ export default class TextInput extends React.Component {
 								{...this.props}
 							/>
 							{this.state.errorMsg && <Container.Error>{this.state.errorMsg}</Container.Error>}
+							{this.props.error && <Container.Error>{this.props.error}</Container.Error>}
 						</Container>
 					)
 				}}

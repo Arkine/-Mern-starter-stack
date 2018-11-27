@@ -13,8 +13,8 @@ export default class Signup extends React.PureComponent {
 	render() {
 		return (
 			<Container>
-				<h1>Signup</h1>
 				<Form>
+					<h1>Signup</h1>
 					<FormGroup>
 						<FormLabel htmlFor="username">Username</FormLabel>
 						<TextInput type="text" name="username" />
@@ -25,6 +25,7 @@ export default class Signup extends React.PureComponent {
 						<FormLabel htmlFor="confirm-password">confirm-password</FormLabel>
 						<TextInput type="password" name="confirm-password" />
 					</FormGroup>
+					<button type="submit">Submit</button>
 				</Form>
 			</Container>
 		);

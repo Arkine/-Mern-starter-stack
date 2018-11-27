@@ -14,7 +14,6 @@ module.exports = merge(dev, {
         hot: true,
         overlay: true,
         inline: true,
-        compress: true,
-        noInfo: true,
+        compress: true
     }
 });

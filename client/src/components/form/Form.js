@@ -9,7 +9,13 @@ import {
 
 const Container = styled.form`
 	border-radius: 4px;
+
 	padding: 1rem;
+	margin: 0 auto;
+
+	width: 100%;
+	max-width: 500px;
+
 `;
 
 
@@ -21,6 +27,8 @@ export default class Form extends React.Component {
 			errors: {},
 			values: {}
 		}
+
+		this._formEl = React.createRef();
 	}
 
 	handleFieldChange = e => {
@@ -29,8 +37,8 @@ export default class Form extends React.Component {
 
 	updateField = (field, val) => {
 		this.setState({
-			fields: {
-				...this.state.fields,
+			values: {
+				...this.state.values,
 				[field]: val
 			}
 		});
@@ -38,7 +46,6 @@ export default class Form extends React.Component {
 
 	onSubmit = e => {
 		e.preventDefault();
-
 		const isValid = this.validate();
 		const {errors, values} = this.state;
 
@@ -46,16 +53,40 @@ export default class Form extends React.Component {
 	}
 
 	validate() {
-		let errors = this.props.validator(this.state.values);
+		let isValid = true;
+		const form = this._formEl.current;
 
-		// If there are errors
-		if (errors.length) {
-			this.setState({errors});
+		if (form) {
+			console.log('NOT VALID', form)
+			if (form.checkValidity() === false) {
+				for(let i=0; i<formLength; i++) {
+					const elem = form[i];
+					console.log({elem})
+					if (!elem.validity.valid) {
+						this.setState({
+							errors: {
+								...this.state.errors,
+								[elem.name]: elem.validationMessage,
+							}
+						});
+					}
+				}
 
-			return false;
+				isValid = false;
+			}
 		}
 
-		return true;
+		if (this.props.validator) {
+			let errors = this.props.validator(this.state.values);
+
+			// If there are errors
+			this.setState({errors});
+
+			// isValid = false;
+		}
+
+
+		return isValid;
 	}
 
 	render() {
@@ -64,7 +95,7 @@ export default class Form extends React.Component {
 			<ValuesContext.Provider value={this.state.values}>
 				<ErrorsContext.Provider value={this.state.errors}>
 					<SetValueContext.Provider value={this.updateField}>
-						<Container onSubmit={this.onSubmit} {...rest}>
+						<Container onSubmit={this.onSubmit} {...rest} ref={this._formEl}>
 							{this.props.children}
 						</Container>
 					</SetValueContext.Provider>

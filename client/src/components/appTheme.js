@@ -16,6 +16,6 @@ export default {
 		error: colors.red,
     },
     body: {
-        rowWidth: '70rem'
+        rowWidth: '62rem'
     }
 }

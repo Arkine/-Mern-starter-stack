@@ -1,19 +1,30 @@
 import styled, {css} from 'styled-components';
 
 const sizes = {
-	desktop: 1120,
+	desktop: 992,
 	tablet: 768,
 	mobile: 576
 }
 
-const media = Object.keys(sizes).reduce((acc, label) => {
-	acc[label] = (...args) => css`
-		@media (max-width: ${sizes[label] / 16}em) {
-			${css(...args)}
-		}
-	`;
+const media = {
+	max: Object.keys(sizes).reduce((acc, label) => {
+		acc[label] = (...args) => css`
+			@media (max-width: ${sizes[label] / 16}rem) {
+				${css(...args)}
+			}
+		`;
 
-	return acc;
-}, {});
+		return acc;
+	}, {}),
+	min: Object.keys(sizes).reduce((acc, label) => {
+		acc[label] = (...args) => css`
+			@media (min-width: ${sizes[label] / 16}rem) {
+				${css(...args)}
+			}
+		`;
+
+		return acc;
+	}, {})
+};
 
 export default media;

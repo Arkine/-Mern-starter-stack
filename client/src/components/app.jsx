@@ -37,21 +37,30 @@ export default class App extends React.Component {
 		}, 1500);
 	}
 
+	renderBodyContent() {
+		if (this.state.loading) {
+			return  <LoadingSpinner isLoading={true} />;
+		}
+
+		return (
+			<React.Fragment>
+				<Normalize />
+				<BaseStyles />
+
+				<Header />
+				<Body>
+					<Routes childProps={this.state} />
+				</Body>
+				<Footer />
+			</React.Fragment>
+		)
+	}
+
     render() {
         return (
 			<Router history={history}>
 				<ThemeProvider theme={theme}>
-					<React.Fragment>
-						{this.state.loading && <LoadingSpinner isLoading={true} />}
-						<Normalize />
-						<BaseStyles />
-
-						<Header />
-						<Body>
-							<Routes childProps={this.state} />
-						</Body>
-						<Footer />
-					</React.Fragment>
+					{this.renderBodyContent()}
 				</ThemeProvider>
 			</Router>
         );

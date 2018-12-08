@@ -49,7 +49,7 @@ export default class App extends React.Component {
 		if (prevProps.auth.isAuthenticated !== this.props.auth.isAuthenticated) {
 			console.log('is now auth')
 			this.setState({
-				isAuthenticated:  true
+				isAuthenticated:  this.props.auth.isAuthenticated
 			});
 		}
 	}

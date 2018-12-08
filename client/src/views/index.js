@@ -18,6 +18,11 @@ const Login = AsyncComponent(
 	<Loading />
 );
 
+const Logout = AsyncComponent(
+	() => import('./Logout'),
+	<Loading />
+);
+
 const Signup = AsyncComponent(
 	() => import('./Signup'),
 	<Loading />
@@ -27,5 +32,6 @@ export {
 	Home,
 	About,
 	Login,
+	Logout,
 	Signup
 }

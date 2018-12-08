@@ -4,6 +4,8 @@ const AUTH_STARTED = "AUTH_STARTED";
 const AUTH_SUCCESS = "AUTH_SUCCESS";
 const AUTH_FAILED = "AUTH_FAILED";
 
+const AUTH_DEAUTH = "AUTH_DEAUTH";
+
 const initialState = {
 	auth: {
 		isFetching: false,
@@ -48,6 +50,19 @@ export function login(data) {
 	}
 }
 
+
+export function logout() {
+	return async dispatch => {
+		dispatch({
+			type: AUTH_STARTED
+		});
+
+		dispatch({
+			type: AUTH_DEAUTH
+		});
+	}
+}
+
 export default function reducer(state = initialState, action = {}) {
 	switch(action.type) {
 		case AUTH_STARTED:
@@ -69,6 +84,9 @@ export default function reducer(state = initialState, action = {}) {
 				isAuthenticated: true,
 				...action.payload
 			}
+		case AUTH_DEAUTH:
+			return initialState;
+
 		default:
 			return state;
 	}

@@ -14,5 +14,4 @@ Navigation.Link = styled(NavLink)`
 		background-color: ${props => props.theme.colors.hover};
 		color: #fff;
 	}
-
 `;

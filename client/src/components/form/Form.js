@@ -22,6 +22,10 @@ const Container = styled.form`
 	${media('max').tablet`
 		min-width: 250px;
 	`}
+
+	button {
+		margin-top: 1rem;
+	}
 `;
 
 

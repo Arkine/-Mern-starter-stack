@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import {Container} from './LoginStyled';
 
@@ -20,31 +21,38 @@ export default class Login extends React.Component {
 		}
 	}
 
-	handleFormSubmit = ({errors, values}) => {
-		console.log({errors})
+	handleFormSubmit = async ({errors, values}) => {
+		// const resp = await axios.post('/auth/login', values);
+
+		console.log({errors, state: this.state})
+		
 		this.setState({
 			errors,
 		});
 	}
 
 	validateForm = values => {
-		console.log('VALIDATOR HERE DOG', values)
 		const keys = Object.keys(values);
+		const minLen = 5;
+
+		const errors = {};
 		for (let i=0; i<keys.length; i++) {
 			const val = values[keys[i]];
-			if (val.length < 5) {
-				this.setState(prevState => ({
-					errors: {
-						...prevState.errors,
-						[keys[i]]: 'too long'
-					}
-				}));
+		
+			if (val.length < minLen) {
+				errors[keys[i]] = `${keys[i]} must be at least ${minLen} characters in length`;
+				// this.setState(prevState => ({
+				// 	errors: {
+				// 		...prevState.errors,
+				// 		[keys[i]]: `${keys[i]} must be at least ${minLen} characters in length`
+				// 	}
+				// }), () => {
+				// 	console.log(this.state)
+				// });
 			}
 		}
 
-		console.log(this.state)
-
-		return {};
+		return errors;
 	}
 
 	render() {
@@ -54,7 +62,7 @@ export default class Login extends React.Component {
 					<h1>Login</h1>
 					<FormGroup>
 						<TextInput
-							type="number"
+							type="text"
 							name="username"
 							error={this.state.errors['username']}
 							label="Username"

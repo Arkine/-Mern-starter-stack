@@ -8,6 +8,7 @@ import {
 	ErrorsContext,
 	SetValueContext
 } from './FormContexts';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 const Container = styled.form`
 	border-radius: 4px;
@@ -52,19 +53,27 @@ export default class Form extends React.Component {
 				[field]: val
 			}
 		});
+
+		console.log(this.state.values)
 	}
 
 	onSubmit = e => {
 		e.preventDefault();
-		const isValid = this.validate();
-		const {errors, values} = this.state;
+		const validation = this.validate();
+		const {values} = this.state;
 
-		this.props.onSubmit({errors, values}, e);
+		console.log('app state', this.state.errors)
+
+		if (validation.isValid) {
+			this.props.onSubmit({errors: validation.errors, values}, e);	
+		}
+
 	}
 
 	validate() {
 		let isValid = true;
 		isValid = this._formEl.current.checkValidity();
+		let errors = {};
 
 		// if (form) {
 		// 	// if (form.checkValidity() === false) {
@@ -86,12 +95,18 @@ export default class Form extends React.Component {
 		// }
 
 		if (this.props.validator) {
-			this.props.validator(this.state.values);
-			// isValid = false;
+			errors = this.props.validator(this.state.values);
+			
+			this.setState({
+				errors
+			});
 		}
 
 
-		return isValid;
+		return {
+			isValid,
+			errors
+		};
 	}
 
 	render() {

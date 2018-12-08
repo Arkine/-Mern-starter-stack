@@ -18,6 +18,10 @@ export default class Signup extends React.Component {
 		};
 	}
 
+	handleFormSubmit = e => {
+		console.log(e);
+	}
+
 	validate = values => {
 		return {};
 	}

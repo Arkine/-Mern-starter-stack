@@ -91,6 +91,7 @@ export default class TextInput extends React.Component {
 								hasError={!!this.state.errorMsg || !!this.props.error}
 								onChange={(e) => {
 									e.preventDefault();
+
 									this.updateField(e);
 									setValue(this.props.name, e.target.value);
 								}}

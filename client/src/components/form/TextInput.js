@@ -21,6 +21,7 @@ Container.Error = styled.span`
 
 Container.Input = styled.input`
 	border: 1px solid ${props => props.hasError ? props.theme.colors.error : props.theme.colors.gray};
+	padding: 0.5rem;
 `;
 
 Container.Label = styled(FormLabel)`
@@ -35,6 +36,7 @@ export default class TextInput extends React.Component {
 			errorMsg: null
 		};
 	}
+
 	onInvalid = e => {
 		e.preventDefault();
 

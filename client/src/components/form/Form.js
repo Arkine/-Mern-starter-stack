@@ -11,6 +11,8 @@ import {
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 const Container = styled.form`
+	position: relative;
+	
 	border-radius: 4px;
 
 	padding: 1rem;
@@ -62,37 +64,15 @@ export default class Form extends React.Component {
 		const validation = this.validate();
 		const {values} = this.state;
 
-		console.log('app state', this.state.errors)
-
 		if (validation.isValid) {
 			this.props.onSubmit({errors: validation.errors, values}, e);	
 		}
-
 	}
 
 	validate() {
+		let errors = {};
 		let isValid = true;
 		isValid = this._formEl.current.checkValidity();
-		let errors = {};
-
-		// if (form) {
-		// 	// if (form.checkValidity() === false) {
-		// 		for(let i=0; i<form.length; i++) {
-		// 			const elem = form[i];
-		// 			// if (!elem.validity.valid) {
-		// 				this.setState({
-		// 					errors: {
-		// 						...this.state.errors,
-		// 						[elem.name]:  'not valid'//elem.validationMessage,
-		// 					}
-		// 				});
-		// 				console.log('INVALIDATIONG', this.state.errors);
-		// 			// }
-		// 		}
-
-		// 		isValid = false;
-		// 	// }
-		// }
 
 		if (this.props.validator) {
 			errors = this.props.validator(this.state.values);
@@ -101,7 +81,6 @@ export default class Form extends React.Component {
 				errors
 			});
 		}
-
 
 		return {
 			isValid,

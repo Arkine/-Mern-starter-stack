@@ -2,14 +2,13 @@ import React from 'react';
 import axios from 'axios';
 
 import {Container} from './LoginStyled';
-
-import {Button} from 'app/components/common/Button';
-
 import {
 	Form,
 	FormGroup,
-	TextInput
+	TextInput,
+	FormButton
 } from 'app/components/form';
+import { LoadingSpinner } from '../../components/loading';
 
 export default class Login extends React.Component {
 	constructor(props) {
@@ -17,17 +16,41 @@ export default class Login extends React.Component {
 
 
 		this.state = {
-			errors: {}
+			errors: {},
+			isLoading: false
 		}
 	}
 
 	handleFormSubmit = async ({errors, values}) => {
-		// const resp = await axios.post('/auth/login', values);
 
-		console.log({errors, state: this.state})
-		
+		if (Object.keys(errors).length) {
+			this.setState({
+				errors,
+			});
+
+			return;
+		}
+
 		this.setState({
-			errors,
+			isLoading: true
+		});
+
+		try {
+			const {data} = await axios.post('/auth/login', values);
+			const delay = () => new Promise(resolve => setTimeout(() => resolve(), 1000));
+
+			// Simulate a longer delay for the button anim
+			await delay();
+
+			if (data.success) {
+
+			}
+		} catch(e) {
+			console.error('there was an error fetcing')
+		}
+
+		this.setState({
+			isLoading: false
 		});
 	}
 
@@ -41,14 +64,6 @@ export default class Login extends React.Component {
 		
 			if (val.length < minLen) {
 				errors[keys[i]] = `${keys[i]} must be at least ${minLen} characters in length`;
-				// this.setState(prevState => ({
-				// 	errors: {
-				// 		...prevState.errors,
-				// 		[keys[i]]: `${keys[i]} must be at least ${minLen} characters in length`
-				// 	}
-				// }), () => {
-				// 	console.log(this.state)
-				// });
 			}
 		}
 
@@ -58,7 +73,7 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<Container>
-				<Form onSubmit={this.handleFormSubmit} validator={this.validateForm}>
+				<Form onSubmit={this.handleFormSubmit} validator={this.validateForm} isLoading={this.state.isLoading}>
 					<h1>Login</h1>
 					<FormGroup>
 						<TextInput
@@ -66,6 +81,7 @@ export default class Login extends React.Component {
 							name="username"
 							error={this.state.errors['username']}
 							label="Username"
+							disabled={this.state.isLoading}
 							required
 						/>
 
@@ -74,10 +90,11 @@ export default class Login extends React.Component {
 							name="password"
 							error={this.state.errors['password']}
 							label="Password"
+							disabled={this.state.isLoading}
 							required
 						/>
 					</FormGroup>
-					<Button type="submit">Submit</Button>
+					<FormButton type="submit" text="Submit" loading={this.state.isLoading} />
 				</Form>
 			</Container>
 		);

@@ -2,23 +2,41 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-	/* display: flex;
+	display: flex;
 	justify-content: center;
-	align-items: center; */
+	align-items: center;
 
 	height: 100%;
 	width: 100%;
-	border: 1px solid red;
 `;
 
-Container.Content = styled.div``;
+Container.Content = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
 
+
+Container.Text = styled.h1`
+	display: flex;
+	flex-flow: column;
+
+	font-size: 1.8rem;
+`;
+
+const Code = styled.div`
+	font-size: 5rem;
+	text-align: center;
+`;
 
 export default props => {
 	return (
 		<Container>
 			<Container.Content>
-				<h3>Oops, page not found!</h3>
+				<Container.Text>
+					<Code>404</Code>
+					<div>Oops, page not found!</div>
+				</Container.Text>
 			</Container.Content>
 		</Container>
 	)

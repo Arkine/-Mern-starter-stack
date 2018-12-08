@@ -4,11 +4,9 @@ Building a re-usable full-stack so that I can start new projects faster. In prog
 ## TODOs
 
 ### Client
-- Add state managament?
 - Create a media uploader
 - Create User CRUD interface
 - Create User password logic
-- Hook login and signup into API
 - Create server fetching pattern
 
 ### Server

@@ -10,6 +10,8 @@ export const Button = styled.button`
 	color: #fff;
 	transition: all 0.2s ease-in;
 
+	border: 2px solid transparent;
+
 	border-radius: 4px;
 
 	&:hover {
@@ -39,6 +41,7 @@ Button.Link = styled(NavLink)`
 		cursor: pointer;
 
 		background-color: ${props => props.theme.colors.hover};
+		border-color: transparent;
 		color: #fff;
 	}
 `;

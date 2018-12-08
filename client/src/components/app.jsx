@@ -12,7 +12,6 @@ import Header from './common/Header';
 import Footer from './common/Footer';
 import Body from './common/Body';
 
-
 import Routes from './routes/Routes';
 
 import {LoadingSpinner} from './loading';

@@ -49,7 +49,6 @@ export function login(data) {
 }
 
 export default function reducer(state = initialState, action = {}) {
-	console.log('here updating', action)
 	switch(action.type) {
 		case AUTH_STARTED:
 			return {

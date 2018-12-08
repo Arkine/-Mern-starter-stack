@@ -59,12 +59,14 @@ export default function reducer(state = initialState, action = {}) {
 			return {
 				...state,
 				isFetching: false,
+				isAuthenticated: false,
 				...action.payload
 			}
 		case AUTH_SUCCESS:
 			return {
 				...state,
 				isFetching: false,
+				isAuthenticated: true,
 				...action.payload
 			}
 		default:

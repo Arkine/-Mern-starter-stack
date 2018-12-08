@@ -12,7 +12,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 
 const Container = styled.form`
 	position: relative;
-	
+
 	border-radius: 4px;
 
 	padding: 1rem;
@@ -55,8 +55,6 @@ export default class Form extends React.Component {
 				[field]: val
 			}
 		});
-
-		console.log(this.state.values)
 	}
 
 	onSubmit = e => {

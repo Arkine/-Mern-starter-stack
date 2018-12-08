@@ -5,7 +5,7 @@ export default ({component: C, props: cProps, ...rest}) => (
 	<Route
 		{...rest}
 		render={props => (
-			props.userAuthenticated ? <C {...props} {...cProps} /> : <Redirect to="/login" />
+			cProps.isAuthenticated ? <C {...props} {...cProps} /> : <Redirect to="/login" />
 		)}
 	/>
 )

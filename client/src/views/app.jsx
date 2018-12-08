@@ -1,10 +1,9 @@
 import React from 'react';
 import {ThemeProvider} from 'styled-components';
 import {Router} from 'react-router-dom';
-import {Provider} from "react-redux";
+import {connect} from 'react-redux';
 
 import history from 'app/services/history';
-import store from 'app/services/store';
 
 import theme from './appTheme';
 
@@ -16,16 +15,24 @@ import Routes from 'app/components/routes/Routes';
 
 import {LoadingSpinner} from 'app/components/loading';
 
-import BaseStyles from 'app/components/common/BaseStyles'
-import {Normalize} from 'styled-normalize'
+import BaseStyles from 'app/components/common/BaseStyles';
+import {Normalize} from 'styled-normalize';
 
+
+const mapStateToProps = state => {
+	return {
+		auth: state.auth
+	}
+}
+
+@connect(mapStateToProps)
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			loading: true,
-			userAuthenticated: false,
+			isAuthenticated: false,
 			appAuthenticated: false,
 		}
 	}
@@ -36,6 +43,15 @@ export default class App extends React.Component {
 				loading: false
 			});
 		}, 1500);
+	}
+
+	componentDidUpdate(prevProps) {
+		if (prevProps.auth.isAuthenticated !== this.props.auth.isAuthenticated) {
+			console.log('is now auth')
+			this.setState({
+				isAuthenticated:  true
+			});
+		}
 	}
 
 	renderBodyContent() {
@@ -60,11 +76,9 @@ export default class App extends React.Component {
     render() {
         return (
 			<Router history={history}>
-				<Provider store={store}>
-					<ThemeProvider theme={theme}>
-						{this.renderBodyContent()}
-					</ThemeProvider>
-				</Provider>
+				<ThemeProvider theme={theme}>
+					{this.renderBodyContent()}
+				</ThemeProvider>
 			</Router>
         );
     }

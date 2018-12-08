@@ -12,6 +12,7 @@ import {
 	TextInput,
 	FormButton
 } from 'app/components/form';
+import { Button } from '../../components/common/Button';
 
 const mapStateToProps = state => {
 	return {
@@ -99,7 +100,10 @@ export default class Login extends React.Component {
 							required
 						/>
 					</FormGroup>
-					<FormButton type="submit" text="Submit" loading={this.props.auth.isFetching} />
+					<Container.ButtonGroup>
+						<FormButton type="submit" text="Submit" loading={this.props.auth.isFetching} />
+						<Button.Link to="/signup">Sign Up</Button.Link>
+					</Container.ButtonGroup>
 				</Form>
 			</Container>
 		);

@@ -7,3 +7,11 @@ export const Container = styled.div`
 
 	flex-grow: 1;
 `;
+
+Container.ButtonGroup = styled.div`
+	button {
+		& + * {
+			margin-left: 1rem;
+		}
+	}
+`;

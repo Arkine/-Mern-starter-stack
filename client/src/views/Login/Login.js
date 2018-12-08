@@ -36,6 +36,16 @@ export default class Login extends React.Component {
 		}
 	}
 
+	componentDidUpdate() {
+		if (this.props.auth.isAuthenticated) {
+			const {referrer} = this.props.location.state;
+
+			const redirectUrl = referrer ? referrer : '/home';
+
+			this.props.history.push(redirectUrl);
+		}
+	}
+
 	handleFormSubmit = async ({errors, values}) => {
 
 		if (Object.keys(errors).length) {

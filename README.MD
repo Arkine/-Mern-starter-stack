@@ -15,4 +15,6 @@ Building a re-usable full-stack so that I can start new projects faster. In prog
 - Create User password reset/update
 - Create User CRUD ops
 - Create REST API architecture
+- Create DB adapter
+- Create Auth adapter?
 - Create media upload middleware

@@ -12,6 +12,7 @@ export default {
     colors: {
 		...colors,
 		primary: colors.blueMidnight,
+		hover: colors.blueSky,
 		secondary: colors.teal,
 		error: colors.red,
     },

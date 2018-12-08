@@ -1,8 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import history from 'app/services/history';
+
 import {Navigation} from './PrimaryNavigationStyled';
 
+import links from './links';
 
 const mapStateToProps = state => {
 	return {
@@ -11,20 +14,42 @@ const mapStateToProps = state => {
 }
 
 @connect(mapStateToProps)
-export default class PrimaryNavigation extends React.PureComponent {
+export default class PrimaryNavigation extends React.Component {
+
+	shouldComponentUpdate(prevProps) {
+		const {pathname} = history.location;
+		if (prevProps.history.location.pathname !== pathname) {
+			return true;
+		}
+	}
+
+	renderLinks(linkSet) {
+		const {pathname} = history.location;
+
+		return linkSet.map((link, i) => (
+			<Navigation.Link 
+				key={`nav-link-${i}`}
+				to={link.to}
+				active={(link.to === pathname)}
+			>
+				{link.label}
+			</Navigation.Link>))
+	}
+
 	render() {
+		const {all, loggedIn, loggedOut} = links;
 		return (
 			<Navigation>
-				<Navigation.Link to="/">Home</Navigation.Link>
-				<Navigation.Link to="/about">About</Navigation.Link>
+				{this.renderLinks(all)}
 				{!this.props.auth.isAuthenticated && 
 					<React.Fragment>
-						<Navigation.Link to="/signup">Sign Up</Navigation.Link>
-						<Navigation.Link to="/login">Login</Navigation.Link>
+						{this.renderLinks(loggedOut)}
 					</React.Fragment>
 				}
 				{this.props.auth.isAuthenticated &&
-					<Navigation.Link to="/logout">Log Out</Navigation.Link>
+					<React.Fragment>
+						{this.renderLinks(loggedIn)}
+					</React.Fragment>
 				}
 			</Navigation>
 		);

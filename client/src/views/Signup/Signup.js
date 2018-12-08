@@ -1,12 +1,11 @@
 import React from 'react';
 
 import {Container} from './SignupStyled';
-import {Button} from 'app/components/common/Button';
-
 import {
 	Form,
 	FormGroup,
-	TextInput
+	TextInput,
+	FormButton
 } from 'app/components/form';
 
 export default class Signup extends React.Component {
@@ -14,7 +13,8 @@ export default class Signup extends React.Component {
 		super(props);
 
 		this.state = {
-			errors: {}
+			errors: {},
+			isLoading: false
 		};
 	}
 
@@ -59,7 +59,7 @@ export default class Signup extends React.Component {
 							required
 						/>
 					</FormGroup>
-					<Button type="submit">Submit</Button>
+					<FormButton type="submit" text="Submit" isLoading={this.state.isLoading} />
 				</Form>
 			</Container>
 		);

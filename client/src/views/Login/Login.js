@@ -8,7 +8,6 @@ import {
 	TextInput,
 	FormButton
 } from 'app/components/form';
-import { LoadingSpinner } from '../../components/loading';
 
 export default class Login extends React.Component {
 	constructor(props) {

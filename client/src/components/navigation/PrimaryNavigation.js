@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
 import history from 'app/services/history';
 
@@ -13,24 +14,16 @@ const mapStateToProps = state => {
 	}
 }
 
-@connect(mapStateToProps)
+@connect(mapStateToProps, null, null, {
+	pure: false
+})
 export default class PrimaryNavigation extends React.Component {
-
-	shouldComponentUpdate(prevProps) {
-		const {pathname} = history.location;
-		if (prevProps.history.location.pathname !== pathname) {
-			return true;
-		}
-	}
-
 	renderLinks(linkSet) {
-		const {pathname} = history.location;
-
 		return linkSet.map((link, i) => (
 			<Navigation.Link 
+				exact
 				key={`nav-link-${i}`}
 				to={link.to}
-				active={(link.to === pathname)}
 			>
 				{link.label}
 			</Navigation.Link>))

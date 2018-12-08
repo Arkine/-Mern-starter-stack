@@ -12,7 +12,7 @@ Navigation.Link = styled(NavLink)`
 
 	background-color: ${props => props.active ? props.theme.colors.hover : 'initial'};
 
-	&:hover {
+	&:hover, &.active {
 		background-color: ${props => props.theme.colors.hover};
 		color: #fff;
 	}

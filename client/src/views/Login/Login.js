@@ -1,5 +1,9 @@
 import React from 'react';
-import axios from 'axios';
+
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import {login} from 'app/ducks/auth';
 
 import {Container} from './LoginStyled';
 import {
@@ -9,6 +13,18 @@ import {
 	FormButton
 } from 'app/components/form';
 
+const mapStateToProps = state => {
+	return {
+		auth: state.auth
+	}
+}
+
+const mapDispatchToProps = dispatch => (bindActionCreators({
+	login
+}, dispatch));
+
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
@@ -30,27 +46,7 @@ export default class Login extends React.Component {
 			return;
 		}
 
-		this.setState({
-			isLoading: true
-		});
-
-		try {
-			const {data} = await axios.post('/auth/login', values);
-			const delay = () => new Promise(resolve => setTimeout(() => resolve(), 1000));
-
-			// Simulate a longer delay for the button anim
-			await delay();
-
-			if (data.success) {
-
-			}
-		} catch(e) {
-			console.error('there was an error fetcing')
-		}
-
-		this.setState({
-			isLoading: false
-		});
+		await this.props.login(values);
 	}
 
 	validateForm = values => {
@@ -72,7 +68,7 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<Container>
-				<Form onSubmit={this.handleFormSubmit} validator={this.validateForm} isLoading={this.state.isLoading}>
+				<Form onSubmit={this.handleFormSubmit} validator={this.validateForm} isLoading={this.props.auth.isFetching}>
 					<h1>Login</h1>
 					<FormGroup>
 						<TextInput
@@ -93,7 +89,7 @@ export default class Login extends React.Component {
 							required
 						/>
 					</FormGroup>
-					<FormButton type="submit" text="Submit" loading={this.state.isLoading} />
+					<FormButton type="submit" text="Submit" loading={this.props.auth.isFetching} />
 				</Form>
 			</Container>
 		);

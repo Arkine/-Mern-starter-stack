@@ -38,9 +38,9 @@ export default class Login extends React.Component {
 
 	componentDidUpdate() {
 		if (this.props.auth.isAuthenticated) {
-			const {referrer} = this.props.location.state;
+			const {state} = this.props.location;
 
-			const redirectUrl = referrer ? referrer : '/home';
+			const redirectUrl = (state && state.referrer) ? state.referrer : '/';
 
 			this.props.history.push(redirectUrl);
 		}

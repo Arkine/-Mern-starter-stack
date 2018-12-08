@@ -9,7 +9,7 @@ export default createGlobalStyle`
 	body {
 		position: relative;
 		font-family: Roboto, sans-serif;
-		line-height: 1.3;
+		line-height: 1.5;
 		height: 100%;
 	}
 

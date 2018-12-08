@@ -1,8 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
-
-import history from 'app/services/history';
 
 import {Navigation} from './PrimaryNavigationStyled';
 

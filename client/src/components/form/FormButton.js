@@ -27,10 +27,9 @@ const SpinnerButton = styled(Button)`
 
 SpinnerButton.Spinner = styled(FontAwesomeIcon)`
     display: none;
-    margin-left: 1rem;
 
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 
     animation: ${spin} 1s infinite;
 `;

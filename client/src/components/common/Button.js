@@ -25,10 +25,12 @@ export const Button = styled.button`
 Button.Link = styled(NavLink)`
 	display: inline-block;
 
-	border: 2px solid ${props => props.theme.colors.primary};
 	padding: 1rem;
+	margin-top: 1rem;
+	
 	min-width: 100px;
 
+	border: 2px solid ${props => props.theme.colors.primary};
 	border-radius: 4px;
 
 	color: ${props => props.theme.colors.primary};

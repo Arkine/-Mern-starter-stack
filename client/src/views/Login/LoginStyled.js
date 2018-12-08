@@ -9,6 +9,11 @@ export const Container = styled.div`
 `;
 
 Container.ButtonGroup = styled.div`
+	display: flex;
+	flex-direction: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+
 	button {
 		& + * {
 			margin-left: 1rem;

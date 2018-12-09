@@ -8,6 +8,10 @@ const sizes = {
 	mobile: 576
 }
 
+/**
+ * Creates media queries for use in styled components
+ * @param {String} limit 'max|min'
+ */
 const media = (limit) => (
 	Object.keys(sizes).reduce((acc, label) => {
 		acc[label] = (...args) => css`

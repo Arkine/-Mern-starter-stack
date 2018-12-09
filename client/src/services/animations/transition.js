@@ -1,4 +1,5 @@
 import {TweenMax} from 'gsap'
+
 /**
  * fadeFromTop
  * @param {Object} props: state object

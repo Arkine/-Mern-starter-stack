@@ -17,6 +17,9 @@ const initialState = {
 
 const delay = () => new Promise(resolve => setTimeout(() => resolve(), 1000));
 
+/**
+ * Authenticats a user with the app
+ */
 export function authenticate() {
 	return async dispatch => {
 		dispatch({
@@ -25,6 +28,10 @@ export function authenticate() {
 	}
 }
 
+/**
+ * Log in a user
+ * @param {*} data login form data
+ */
 export function login(data) {
 	return async dispatch => {
 		dispatch({
@@ -50,7 +57,9 @@ export function login(data) {
 	}
 }
 
-
+/**
+ * Log out a user
+ */
 export function logout() {
 	return async dispatch => {
 		dispatch({

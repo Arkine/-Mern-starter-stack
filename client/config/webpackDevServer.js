@@ -6,6 +6,9 @@ module.exports = merge(dev, {
     devServer: {
         contentBase: paths.appOutput,
         publicPath: '/',
+        /**
+         * Server proxy requests all goto :5000
+         */
         proxy: {
             '*': `http://localhost:5000`
         },

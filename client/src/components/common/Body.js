@@ -15,6 +15,9 @@ const Body = styled.main`
 	`}
 `;
 
+/**
+ * The app body
+ */
 export default props => {
 	return (
 		<Body>{props.children}</Body>

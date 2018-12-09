@@ -19,6 +19,9 @@ Header.Content = styled.div`
 	max-width: ${props => props.theme.body.rowWidth};
 `;
 
+/**
+ * Header component
+ */
 export default props => {
 	return (
 		<Header>

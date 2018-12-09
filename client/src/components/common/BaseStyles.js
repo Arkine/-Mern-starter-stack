@@ -1,5 +1,8 @@
 import {createGlobalStyle} from 'styled-components';
 
+/**
+ * Base styling for the app
+ */
 export default createGlobalStyle`
 	html {
 		font-size: 16px;

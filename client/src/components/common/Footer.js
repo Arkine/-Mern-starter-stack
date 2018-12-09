@@ -15,6 +15,9 @@ Footer.Content = styled.div`
 	color: #fff;
 `;
 
+/**
+ * Footer component
+ */
 export default props => {
 	return (
 		<Footer>

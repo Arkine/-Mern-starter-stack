@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 import {NavLink} from 'react-router-dom';
 
+/**
+ * Generic button component
+ */
 export const Button = styled.button`
 	padding: 1rem;
 	min-width: 150px;

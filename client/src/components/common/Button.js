@@ -31,8 +31,17 @@ export const Button = styled.button`
 	}
 `;
 
+Button.WithLink = styled(Button)`
+	padding: 0;
+
+	a {
+		display: block;
+		padding: 1rem;
+	}
+`;
+
 Button.Link = (props) => (
-	<Button secondary>
+	<Button.WithLink  secondary>
 		<NavLink to={props.to}>{props.children}</NavLink>
-	</Button>
+	</Button.WithLink>
 );

@@ -10,7 +10,7 @@ module.exports = merge(dev, {
          * Server proxy requests all goto :5000
          */
         proxy: {
-            '*': `http://localhost:5000`
+            '*': paths.serverProxy
         },
         port: 3000,
         historyApiFallback: true,

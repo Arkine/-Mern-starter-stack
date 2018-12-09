@@ -14,4 +14,5 @@ module.exports = {
     appOutput: resolveApp('src/dist'),
     appHtml: resolveApp('public/index.html'),
     appSrc: resolveApp('src'),
+    serverProxy: `http://localhost:5000`
 }

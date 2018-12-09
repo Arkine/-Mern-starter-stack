@@ -17,6 +17,7 @@ export default {
 		error: colors.red,
     },
     body: {
-        rowWidth: '62rem'
+		rowWidth: '62rem',
+		baseFontSize: 16,
     }
 }

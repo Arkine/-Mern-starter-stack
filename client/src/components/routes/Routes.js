@@ -9,9 +9,9 @@ import {
 	About,
 	Login,
 	Logout,
-	Signup
+	Signup,
+	NotFound
 } from 'app/views';
-import NotFound from 'app/components/common/NotFound';
 
 export default ({childProps}) => (
 	<Switch>

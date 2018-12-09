@@ -2,6 +2,7 @@ import React from 'react';
 
 import AsyncComponent from 'app/components/common/AsyncComponent';
 import Loading from 'app/components/loading/LoadingSpinner';
+import NotFound from './NotFound';
 
 const Home = AsyncComponent(
 	() => import('./Home'),
@@ -33,5 +34,6 @@ export {
 	About,
 	Login,
 	Logout,
-	Signup
+	Signup,
+	NotFound
 }

@@ -87,7 +87,6 @@ export default class Login extends React.Component {
 							name="username"
 							error={this.state.errors['username']}
 							label="Username"
-							disabled={this.state.isLoading}
 							required
 						/>
 
@@ -96,7 +95,6 @@ export default class Login extends React.Component {
 							name="password"
 							error={this.state.errors['password']}
 							label="Password"
-							disabled={this.state.isLoading}
 							required
 						/>
 					</FormGroup>

@@ -20,6 +20,7 @@ Container.Error = styled.span`
 `;
 
 Container.Input = styled.input`
+	border-radius: ${props => props.hasError ? '4px 4px 0 0' : '4px'};
 	border: 1px solid ${props => props.hasError ? props.theme.colors.error : props.theme.colors.gray};
 	padding: 0.5rem;
 `;

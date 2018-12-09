@@ -8,7 +8,6 @@ import {
 	ErrorsContext,
 	SetValueContext
 } from './FormContexts';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 const Container = styled.form`
 	position: relative;
